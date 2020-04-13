@@ -27,14 +27,21 @@ class MainActivity : AppCompatActivity() {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_main)
 		recyclerView.adapter = dayWeatherListAdapter
+		weatherViewModel.refresh()
+	}
 
+	override fun onResume() {
 		compositeDisposable.add(
 				weatherViewModel.weatherUIDatasource.observeOn(AndroidSchedulers.mainThread())
 						.subscribeOn(Schedulers.io())
 						.subscribe { uiData ->
 							dayWeatherListAdapter.submitList(uiData.dailyUiDataList)
 						})
+		super.onResume()
+	}
 
-		weatherViewModel.refresh()
+	override fun onStop() {
+		compositeDisposable.dispose()
+		super.onStop()
 	}
 }
