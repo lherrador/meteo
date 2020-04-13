@@ -1,0 +1,10 @@
+<resources>
+    <string name="base_url" translatable="false">https://api.openweathermap.org/data/2.5/</string>
+    <string name="units" translatable="false">metric</string>
+    <string name="app_id" translatable="false">20c37e1f85546ab34df746a3f65d7caa</string>
+    <string name="lat" translatable="false">48.8534</string>
+    <string name="lon" translatable="false">2.3488</string>
+
+    <integer name="number_of_day">5</integer>
+
+</resources>
